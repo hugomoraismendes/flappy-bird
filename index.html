@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <canvas id="game-canvas" width="400" height="600"></canvas>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        canvas {
+            border: 1px solid #000;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+
+    <script src="./files/game.js"></script>
+    <script>
+        // Função para obter as dimensões do dispositivo
+        function getDeviceDimensions() {
+            var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+            return {
+                width: width,
+                height: height
+            };
+        }
+
+        // Função para definir as dimensões do canvas com base nas dimensões do dispositivo
+        function setCanvasDimensions() {
+            var canvas = document.getElementById('game-canvas');
+            var dimensions = getDeviceDimensions();
+            canvas.width = dimensions.width;
+            canvas.height = dimensions.height;
+        }
+
+        // Chamada inicial para definir as dimensões do canvas
+        setCanvasDimensions();
+
+        // Evento de redimensionamento da janela para atualizar as dimensões do canvas
+        window.addEventListener('resize', setCanvasDimensions);
+    </script>
+</body>
+
+</html>
